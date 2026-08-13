@@ -1,0 +1,118 @@
+.demo-admin-notice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  width: fit-content;
+  max-width: min(100%, 32rem);
+  margin: 0 0 1rem auto;
+  padding: 0.75rem 0.9rem;
+  box-sizing: border-box;
+  border: 1px solid var(--border-color, #303238);
+  border-radius: 8px;
+  background: var(--darkened-bg, #171819);
+  color: var(--body-fg, #f3f4f6);
+}
+
+.demo-admin-notice > div { display: grid; gap: 0.15rem; min-width: 0; }
+.demo-admin-notice strong { color: var(--accent, #c5ee71); font-size: 0.78rem; text-transform: uppercase; }
+.demo-admin-notice span { color: var(--body-quiet-color, #a6abb3); font-size: 0.86rem; }
+.demo-admin-notice nav { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.demo-admin-notice a { color: var(--link-fg, #c5ee71); font-weight: 750; text-decoration: none; }
+.demo-admin-notice a:hover { transform: translateY(-2px); }
+.demo-admin-notice a:focus-visible { outline: 2px solid var(--link-fg, #c5ee71); outline-offset: 3px; }
+.demo-dashboard__models .module { margin: 0; }
+
+.demo-dashboard .admin-landing__grid--bottom { align-items: stretch; }
+.demo-dashboard .admin-landing__grid--bottom > .admin-landing-card { align-self: stretch; }
+
+.change-form .form-row.field-tags #id_tags {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.35rem 0.8rem;
+  margin: 0;
+}
+
+.change-form .form-row.field-tags #id_tags > div { min-width: 0; }
+
+#changelist .results td img[src*="/admin/img/icon-"] {
+  width: 13px;
+  height: 13px;
+  max-width: 13px;
+  vertical-align: middle;
+}
+
+.change-form #projecttranslation_set-group .demo-project-translations .inline-related,
+.change-form #blogposttranslation_set-group .demo-blog-translations .inline-related {
+  margin-bottom: 0.5rem;
+  padding: 0.6rem 0.72rem;
+}
+
+.change-form #projecttranslation_set-group .demo-project-translations .inline-related .form-row,
+.change-form #blogposttranslation_set-group .demo-blog-translations .inline-related .form-row {
+  display: grid;
+  grid-template-columns: minmax(8rem, 11rem) minmax(0, 1fr);
+  align-items: start;
+  gap: 0.35rem 0.8rem;
+  padding: 0.28rem 0;
+}
+
+.change-form #projecttranslation_set-group .demo-project-translations .inline-related .form-row > label,
+.change-form #blogposttranslation_set-group .demo-blog-translations .inline-related .form-row > label {
+  float: none;
+  width: auto;
+  margin: 0;
+  padding-top: 0.35rem;
+}
+
+.change-form #projecttranslation_set-group .demo-project-translations .inline-related .form-row > div,
+.change-form #blogposttranslation_set-group .demo-blog-translations .inline-related .form-row > div {
+  min-width: 0;
+}
+
+.change-form #projecttranslation_set-group .demo-project-translations input,
+.change-form #projecttranslation_set-group .demo-project-translations select,
+.change-form #projecttranslation_set-group .demo-project-translations textarea,
+.change-form #blogposttranslation_set-group .demo-blog-translations input,
+.change-form #blogposttranslation_set-group .demo-blog-translations select,
+.change-form #blogposttranslation_set-group .demo-blog-translations textarea {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+}
+
+.change-form #projecttranslation_set-group .demo-project-translations textarea,
+.change-form #blogposttranslation_set-group .demo-blog-translations textarea {
+  min-height: 4rem;
+}
+
+@media (max-width: 600px) {
+  .demo-admin-notice {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+  }
+  .demo-admin-notice,
+  .demo-admin-notice nav { align-items: stretch; flex-direction: column; }
+  .demo-admin-notice a { min-height: 44px; display: flex; align-items: center; }
+
+  .change-form .form-row.field-tags #id_tags {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .change-form #projecttranslation_set-group .demo-project-translations .inline-related .form-row,
+  .change-form #blogposttranslation_set-group .demo-blog-translations .inline-related .form-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.2rem;
+  }
+
+  .change-form #projecttranslation_set-group .demo-project-translations .inline-related .form-row > label,
+  .change-form #blogposttranslation_set-group .demo-blog-translations .inline-related .form-row > label {
+    padding-top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-admin-notice a { transition: none; }
+}

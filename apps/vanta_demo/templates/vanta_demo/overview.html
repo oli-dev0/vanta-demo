@@ -1,0 +1,80 @@
+{% extends "vanta_demo/base.html" %}
+{% load i18n static %}
+
+{% block title %}{% translate "Vanta Admin Demo | Try the Django Admin Theme" %}{% endblock %}
+
+{% block metadata %}
+  <meta name="description" content="{% translate 'Try Vanta Admin in an interactive Django admin demo with fictional data and a private temporary workspace.' %}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ demo_canonical_url }}">
+  <meta property="og:title" content="{% translate 'Vanta Admin Demo | Try the Django Admin Theme' %}">
+  <meta property="og:description" content="{% translate 'Try Vanta Admin in an interactive Django admin demo with fictional data and a private temporary workspace.' %}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ demo_canonical_url }}">
+  <meta property="og:image" content="{{ demo_social_image_url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% translate 'Vanta Admin Demo | Try the Django Admin Theme' %}">
+  <meta name="twitter:description" content="{% translate 'Try Vanta Admin in an interactive Django admin demo with fictional data and a private temporary workspace.' %}">
+  <meta name="twitter:image" content="{{ demo_social_image_url }}">
+{% endblock %}
+
+{% block content %}
+<main id="main-content" class="demo-overview">
+  <section class="demo-overview__hero" aria-labelledby="demo-title">
+    <h1 id="demo-title" class="demo-overview__title">{% translate "Try Vanta Admin in a real Django admin workflow" %}</h1>
+    <div class="demo-overview__copy">
+      <p class="demo-overview__lead">
+        {% translate "Explore the Vanta interface with fictional data. Create, edit, filter, and delete records inside a private temporary workspace." %}
+      </p>
+      <div class="demo-overview__features-intro">
+        <h2 id="demo-features-title">{% translate "A private admin you can actually use" %}</h2>
+        <p>{% translate "Browse a rich fictional dataset across users, groups, blog, projects, newsletters, service status, contact messages, relationships, and local admin history." %}</p>
+      </div>
+      <section class="demo-overview__features" aria-labelledby="demo-features-title">
+        <ul class="demo-overview__feature-list">
+          <li><strong>{% translate "Real workflows" %}</strong><p>{% translate "Search, filter, paginate, edit, delete, and use inline forms." %}</p></li>
+          <li><strong>{% translate "Private workspace" %}</strong><p>{% translate "Your browser receives its own temporary copy of the fictional data." %}</p></li>
+          <li><strong>{% translate "Vanta controls" %}</strong><p>{% translate "Try responsive navigation, appearance, font, time, and sidebar preferences." %}</p></li>
+        </ul>
+      </section>
+    </div>
+    <div class="demo-overview__side">
+      <figure class="demo-overview__preview">
+        <a class="demo-overview__preview-link" href="#demo-dashboard-preview" data-demo-lightbox-trigger aria-label="{% translate 'Open Vanta Admin dashboard preview' %}">
+          <img src="{% static 'vanta_site/img/main.png' %}" alt="{% translate 'Vanta Admin dashboard with a compact sidebar, activity, and administration panels.' %}" width="3839" height="1854">
+        </a>
+      </figure>
+      <div class="demo-overview__demo-details">
+      <p class="demo-overview__version">{% translate "Running Vanta Admin 0.22.2 · Django 6.1" %}</p>
+      <div class="demo-overview__actions">
+        <form action="{% url 'vanta_demo:start' %}" method="post" data-demo-form>
+          {% csrf_token %}
+          <button class="button button--primary" type="submit" data-demo-submit data-busy-label="{% translate 'Preparing your private demo…' %}">
+            <span class="button__label">{% translate "Try the demo" %}</span>
+          </button>
+        </form>
+        <a class="button button--secondary" href="https://vanta-admin.org/en/features/" target="_blank" rel="noopener noreferrer">
+          {% translate "View All Features" %}
+        </a>
+      </div>
+      <p class="demo-overview__privacy">
+        {% translate "Your demo changes are private and will be cleared when the workspace expires or you start fresh." %}
+      </p>
+      <p class="demo-overview__warning">
+        <strong>{% translate "Use fictional demo data." %}</strong>
+        {% translate "Do not enter personal, confidential, or production information." %}
+      </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="demo-lightbox" id="demo-dashboard-preview" role="dialog" aria-modal="true" aria-label="{% translate 'Large Vanta Admin dashboard preview' %}">
+  <a class="demo-lightbox__backdrop" href="#" data-demo-lightbox-close aria-label="{% translate 'Close Vanta Admin dashboard preview' %}"></a>
+  <a class="demo-lightbox__close" href="#" data-demo-lightbox-close aria-label="{% translate 'Close Vanta Admin dashboard preview' %}">X</a>
+  <a class="demo-lightbox__image-link" href="#" data-demo-lightbox-close aria-label="{% translate 'Close Vanta Admin dashboard preview' %}">
+    <img src="{% static 'vanta_site/img/main.png' %}" alt="{% translate 'Large Vanta Admin dashboard with a compact sidebar, activity, and administration panels.' %}" width="3839" height="1854" loading="lazy">
+  </a>
+</div>
+{% endblock %}

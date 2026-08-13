@@ -1,0 +1,27 @@
+{% extends "vanta_demo/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {% translate "Vanta Admin Demo" %}{% endblock %}
+
+{% block content %}
+<main id="main-content" class="demo-state">
+  <section class="demo-state__panel" aria-labelledby="demo-state-title">
+    <p class="demo-state__label">{% translate "Demo status" %}</p>
+    <h1 id="demo-state-title">{{ title }}</h1>
+    <p>{{ body }}</p>
+    {% if request_reference %}
+      <p class="demo-state__reference">{% translate "Request reference:" %} <code>{{ request_reference }}</code></p>
+    {% endif %}
+    {% if post_action %}
+      <form action="{% url action_url_name %}" method="post" data-demo-form>
+        {% csrf_token %}
+        <button class="button button--primary" type="submit" data-demo-submit data-busy-label="{% translate 'Preparing your private demo…' %}">
+          <span class="button__label">{{ action }}</span>
+        </button>
+      </form>
+    {% else %}
+      <a class="button button--primary" href="{% url action_url_name %}">{{ action }}</a>
+    {% endif %}
+  </section>
+</main>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_theme %}
+
+{% block coltype %}colMS{% endblock %}
+{% block bodyclass %}{{ block.super }} dashboard demo-dashboard{% endblock %}
+{% block nav-breadcrumbs %}{% endblock %}
+{% block content_title %}{% endblock %}
+
+{% block content %}
+{% get_vanta_recent_activity as recent_activity %}
+<section class="admin-landing" aria-labelledby="admin-landing-title">
+  <header class="admin-landing-welcome">
+    <h1 id="admin-landing-title">{% translate "Demo Admin" %}</h1>
+    <p>{% translate "Explore the Vanta Admin interface with fictional project data." %}</p>
+  </header>
+
+  <section class="admin-landing-card admin-landing-card--activity" aria-labelledby="admin-landing-activity-title">
+    <header class="admin-landing-card__header">
+      <h2 id="admin-landing-activity-title">{% translate "My recent activity" %}</h2>
+      {% if recent_activity.history_url %}
+        <a class="admin-landing-card__action" href="{{ recent_activity.history_url }}">{% translate "View all" %}</a>
+      {% endif %}
+    </header>
+    <div class="admin-activity-scroll" tabindex="0" aria-label="{% translate 'Recent activity entries' %}">
+      {% for group in recent_activity.groups %}
+        <section class="admin-activity-group admin-activity-group--{{ group.key }}" aria-labelledby="admin-activity-{{ group.key }}">
+          <h3 id="admin-activity-{{ group.key }}">{{ group.label }}</h3>
+          {% if group.items %}
+            <ol class="admin-activity-list">
+              {% for item in group.items %}
+                <li class="admin-activity-item">
+                  <time class="admin-activity-item__time" datetime="{{ item.iso_time }}" data-admin-recent-time>{{ item.time }}</time>
+                  {% if item.url %}<a class="admin-activity-item__label" href="{{ item.url }}">{{ item.label }}</a>{% else %}<span class="admin-activity-item__label">{{ item.label }}</span>{% endif %}
+                </li>
+              {% endfor %}
+            </ol>
+          {% else %}
+            <p class="admin-landing-empty">
+              {% if group.key == "today" %}{% translate "No activities today." %}{% else %}{% translate "No activities yesterday." %}{% endif %}
+            </p>
+          {% endif %}
+        </section>
+      {% endfor %}
+    </div>
+  </section>
+
+  <div class="admin-landing__grid admin-landing__grid--top">
+    <section class="admin-landing-card" aria-labelledby="admin-quick-actions-title">
+      <header class="admin-landing-card__header">
+        <h2 id="admin-quick-actions-title">{% translate "Quick actions" %}</h2>
+        <span class="admin-info-tooltip">
+          <button class="admin-info-tooltip__button" type="button" aria-label="{% translate 'Quick actions information' %}" aria-describedby="admin-quick-actions-tooltip">
+            <svg aria-hidden="true"><use href="#admin-icon-info"></use></svg>
+          </button>
+          <span class="admin-info-tooltip__content" id="admin-quick-actions-tooltip" role="tooltip">{% translate "Configure these in your project's admin site settings or template context." %}</span>
+        </span>
+      </header>
+      <p class="admin-landing-placeholder">{% translate "Configure project shortcuts for this dashboard." %}</p>
+    </section>
+
+    <section class="admin-landing-card" aria-labelledby="admin-attention-title">
+      <header class="admin-landing-card__header">
+        <h2 id="admin-attention-title">{% translate "Attention required" %}</h2>
+        <span class="admin-info-tooltip">
+          <button class="admin-info-tooltip__button" type="button" aria-label="{% translate 'Attention required information' %}" aria-describedby="admin-attention-tooltip">
+            <svg aria-hidden="true"><use href="#admin-icon-info"></use></svg>
+          </button>
+          <span class="admin-info-tooltip__content" id="admin-attention-tooltip" role="tooltip">{% translate "Items shown here are supplied by your Django project, so each admin can surface the checks that matter to its workflow." %}</span>
+        </span>
+      </header>
+      <p class="admin-landing-placeholder">{% translate "Configure project-specific checks to show items that need attention." %}</p>
+    </section>
+  </div>
+
+  <div class="admin-landing__grid admin-landing__grid--bottom">
+    <section class="admin-landing-card admin-landing-card--system" aria-labelledby="admin-system-title">
+      <header class="admin-landing-card__header"><h2 id="admin-system-title">{% translate "System" %}</h2></header>
+      <dl class="admin-landing-facts">
+        <div class="admin-landing-facts__row"><dt>{% translate "Django version" %}</dt><dd>6.1</dd></div>
+        <div class="admin-landing-facts__row"><dt>{% translate "Python version" %}</dt><dd>3.13</dd></div>
+        <div class="admin-landing-facts__row"><dt>{% translate "Database" %}</dt><dd>SQLite</dd></div>
+        <div class="admin-landing-facts__row"><dt>{% translate "Timezone" %}</dt><dd>UTC</dd></div>
+        <div class="admin-landing-facts__row"><dt>{% translate "Server time" %}</dt><dd>2026-07-22 12:00</dd></div>
+      </dl>
+    </section>
+
+    <section class="admin-landing-card admin-landing-card--environment" aria-labelledby="admin-environment-title">
+      <header class="admin-landing-card__header"><h2 id="admin-environment-title">{% translate "Environment" %}</h2></header>
+      <dl class="admin-landing-facts">
+        <div class="admin-landing-facts__row"><dt>{% translate "Environment" %}</dt><dd>Demo</dd></div>
+        <div class="admin-landing-facts__row"><dt>{% translate "Debug mode" %}</dt><dd>{% translate "Enabled" %}</dd></div>
+        <div class="admin-landing-facts__row"><dt>{% translate "Site name" %}</dt><dd>Vanta Admin Demo</dd></div>
+        <div class="admin-landing-facts__row"><dt>{% translate "Email" %}</dt><dd>{% translate "Local/test backend" %}</dd></div>
+        <div class="admin-landing-facts__row"><dt>{% translate "Static files" %}</dt><dd>{% translate "Configured" %}</dd></div>
+        <div class="admin-landing-facts__row"><dt>{% translate "Media storage" %}</dt><dd>{% translate "Configured" %}</dd></div>
+      </dl>
+    </section>
+  </div>
+</section>
+{% endblock %}
+
+{% block sidebar %}{% endblock %}

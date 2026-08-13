@@ -1,0 +1,70 @@
+{% extends "admin/base.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'vanta_demo/admin-demo.css' %}">
+{% endblock %}
+
+{% block responsive %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'admin/css/responsive.css' %}">
+  <link rel="stylesheet" href="{% static 'admin/css/theme.css' %}">
+{% endblock %}
+
+{% block extrahead %}
+  {{ block.super }}
+  <link rel="icon" type="image/png" href="{% static 'admin/img/favicon.png' %}">
+  <script>
+    try {
+      {% if request.vanta_demo_reset_preferences %}
+      [
+        'theme',
+        'django.admin.theme.timeFormat',
+        'django.admin.theme.fontSize',
+        'django.admin.theme.sidebar.isCollapsed',
+        'django.admin.theme.sidebar.width',
+        'django.admin.theme.sidebar.openSections',
+        'django.admin.theme.sidebar.sectionOrder'
+      ].forEach((key) => localStorage.removeItem(key));
+      {% endif %}
+      if (localStorage.getItem('django.admin.theme.sidebar.openSections') !== null || localStorage.getItem('django.admin.theme.sidebar.sectionOrder') !== null) {
+        document.documentElement.classList.add('admin-nav-state-pending');
+      }
+    } catch (error) {}
+  </script>
+  <script src="{% static 'admin/js/vanta-theme.js' %}" defer></script>
+  <script src="{% static 'admin/js/sidebar.js' %}" defer></script>
+  <script src="{% static 'admin/js/messages.js' %}" defer></script>
+  <script src="{% static 'admin/js/forms.js' %}" defer></script>
+  <script src="{% static 'vanta_demo/admin-demo.js' %}" defer></script>
+{% endblock %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title }}{% endblock %}
+
+{% block branding %}
+  <div id="site-name"><a href="{% url 'admin:index' %}">{{ site_header }}</a></div>
+{% endblock %}
+
+{% block usertools %}
+{% if has_permission %}
+  <div id="user-tools" class="admin-header-tools">
+    <button class="admin-sidebar-menu-button" id="admin-sidebar-menu-button" type="button" aria-controls="nav-sidebar" aria-expanded="false" aria-label="{% translate 'Open admin navigation' %}">
+      <span class="admin-sidebar-menu-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+{% endif %}
+{% endblock %}
+
+{% block messages %}
+  <aside class="demo-admin-notice" aria-label="{% translate 'Demo mode' %}" data-demo-admin-notice data-reset-label="{% translate 'Start fresh demo' %}" data-overview-label="{% translate 'Back to demo overview' %}" data-reset-url="{% url 'vanta_demo:reset' %}" data-overview-url="{% url 'vanta_demo:overview' %}">
+    <div><strong>{% translate "Demo mode" %}</strong><span>{% translate "You are in a private workspace. Changes here are not shared with others." %}</span></div>
+    <nav aria-label="{% translate 'Demo actions' %}">
+      <a href="{% url 'vanta_demo:reset' %}">{% translate "Start fresh demo" %}</a>
+      <a href="{% url 'vanta_demo:overview' %}">{% translate "Back to demo overview" %}</a>
+    </nav>
+  </aside>
+  {{ block.super }}
+{% endblock messages %}
+
+{% block nav-global %}{% endblock %}

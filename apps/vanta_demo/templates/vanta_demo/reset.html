@@ -1,0 +1,23 @@
+{% extends "vanta_demo/base.html" %}
+{% load i18n %}
+
+{% block title %}{% translate "Start a fresh demo?" %} | {% translate "Vanta Admin Demo" %}{% endblock %}
+
+{% block content %}
+<main id="main-content" class="demo-state">
+  <section class="demo-state__panel" aria-labelledby="demo-reset-title">
+    <p class="demo-state__label">{% translate "Reset demo" %}</p>
+    <h1 id="demo-reset-title">{% translate "Start a fresh demo?" %}</h1>
+    <p>{% translate "This will discard everything you changed in this workspace, including records, deletions, preferences, and activity." %}</p>
+    <div class="demo-state__actions">
+      <form action="{% url 'vanta_demo:reset' %}" method="post" data-demo-form>
+        {% csrf_token %}
+        <button class="button button--primary" type="submit" data-demo-submit data-busy-label="{% translate 'Preparing your private demo…' %}">
+          <span class="button__label">{% translate "Start fresh demo" %}</span>
+        </button>
+      </form>
+      <a class="button button--secondary" href="{{ cancel_url }}">{% translate "Keep working" %}</a>
+    </div>
+  </section>
+</main>
+{% endblock %}

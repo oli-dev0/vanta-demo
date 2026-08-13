@@ -1,0 +1,402 @@
+.donate-page {
+  display: grid;
+  gap: 1.25rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 1.3rem;
+}
+
+.donate-hero {
+  display: grid;
+  gap: 1rem;
+  align-items: start;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.donate-hero > h1 {
+  max-width: none;
+}
+
+.donate-hero__icon {
+  display: grid;
+  place-items: center;
+  justify-self: start;
+  align-self: center;
+  width: min(100%, 18rem);
+  min-height: 12rem;
+  color: var(--accent);
+}
+
+.donate-hero__donation-icon {
+  width: min(100%, 10.45rem);
+  height: auto;
+  color: currentColor;
+  fill: currentColor;
+  stroke: none;
+}
+
+.donate-support {
+  display: grid;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.donate-hero__copy {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.donate-hero__copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.donate-section {
+  display: grid;
+  gap: 1rem;
+  scroll-margin-top: 104px;
+  padding-top: 1.35rem;
+}
+
+.donate-section + .donate-section {
+  margin-top: 0.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.donate-section__copy {
+  display: grid;
+  gap: 0.55rem;
+  align-content: start;
+}
+
+.donate-section h2 {
+  margin: 0;
+  color: var(--heading);
+  font-size: clamp(1.45rem, 3vw, 2.1rem);
+  line-height: 1.15;
+}
+
+.donate-section p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.kofi-panel {
+  width: 100%;
+  max-width: 440px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.kofi-panel iframe {
+  display: block;
+  width: 100%;
+  min-height: 580px;
+  background: var(--surface);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-status-theme]) .kofi-panel,
+  :root:not([data-status-theme]) .kofi-panel iframe {
+    background: #171819;
+  }
+}
+
+:root[data-status-theme="dark"] .kofi-panel,
+:root[data-status-theme="dark"] .kofi-panel iframe {
+  background: #171819;
+}
+
+.crypto-grid {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.crypto-support {
+  display: grid;
+  gap: 1rem;
+  padding-top: 0.35rem;
+}
+
+.kofi-support {
+  display: grid;
+  gap: 1rem;
+}
+
+.crypto-support__copy,
+.kofi-support__copy {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.crypto-support__copy h2,
+.kofi-support__copy h2 {
+  margin: 0;
+  color: var(--heading);
+  font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+  line-height: 1.15;
+}
+
+.crypto-support__copy p,
+.kofi-support__copy p {
+  max-width: 680px;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.crypto-address {
+  display: grid;
+  grid-template-columns: minmax(4.75rem, auto) minmax(0, 1fr) auto;
+  gap: 0.5rem;
+  align-items: center;
+  min-width: 0;
+  border: 0;
+  border-radius: var(--radius-lg);
+  padding: 0.35rem 0.65rem;
+  background: var(--quiet-surface);
+  transition:
+    background-color var(--transition),
+    transform var(--transition);
+}
+
+.crypto-address:hover {
+  transform: translateY(-2px);
+  background: var(--surface-hover);
+}
+
+.crypto-address strong {
+  display: block;
+  color: var(--accent-strong);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.crypto-address code {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  color: var(--heading);
+  font: 0.86rem/1.45 "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.crypto-address button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--heading);
+  cursor: pointer;
+  transition:
+    color var(--transition),
+    transform var(--transition);
+}
+
+.crypto-address button:hover {
+  transform: translateY(-2px);
+  color: var(--accent-strong);
+}
+
+.crypto-address button::before,
+.crypto-address button::after {
+  content: "";
+  position: absolute;
+  width: 0.82rem;
+  height: 0.98rem;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+  transition:
+    opacity var(--transition),
+    transform var(--transition);
+}
+
+.crypto-address button::before {
+  transform: translate(0.12rem, -0.12rem);
+  opacity: 0.55;
+}
+
+.crypto-address button::after {
+  background: var(--quiet-surface);
+  transform: translate(-0.12rem, 0.12rem);
+}
+
+.crypto-address:hover button::after {
+  background: var(--surface-hover);
+}
+
+.crypto-address button:hover::before {
+  transform: translate(0.2rem, -0.2rem);
+  opacity: 0.75;
+}
+
+.crypto-address button:hover::after {
+  transform: translate(-0.2rem, 0.2rem);
+}
+
+.crypto-address button.is-copied {
+  color: var(--accent-strong);
+  animation: copy-button-pop 360ms ease;
+}
+
+.crypto-address button.is-copied::before {
+  opacity: 0;
+  transform: scale(0.75);
+}
+
+.crypto-address button.is-copied::after {
+  width: 0.95rem;
+  height: 0.52rem;
+  border-top: 0;
+  border-right: 0;
+  border-radius: 0;
+  background: transparent;
+  transform: translateY(-0.08rem) rotate(-45deg);
+}
+
+@keyframes copy-button-pop {
+  0% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 640px) {
+  .install-page,
+  .releases-page,
+  .donate-page {
+    padding-inline: 1.5rem;
+  }
+
+  .install-summary,
+  .code-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .install-summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+}
+
+@media (min-width: 900px) {
+  .install-page,
+  .releases-page,
+  .donate-page {
+    padding: 2rem 2rem 2rem;
+  }
+
+  .install-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.5fr);
+    gap: 2rem;
+  }
+
+  .releases-hero {
+    gap: 2rem;
+    grid-template-areas:
+      "copy logo";
+  }
+
+  .releases-hero__icon {
+    transform: translateX(-6rem);
+  }
+
+  .releases-rss {
+    bottom: 0;
+  }
+
+  .install-hero__logos {
+    justify-self: end;
+  }
+
+  .donate-support {
+    grid-template-columns: minmax(320px, 470px) minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .crypto-support-wrap {
+    order: 2;
+  }
+
+  .crypto-support {
+    justify-self: end;
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .kofi-support {
+    order: 1;
+  }
+
+  .donate-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.34fr);
+    gap: 2rem;
+  }
+
+  .donate-hero > h1 {
+    grid-column: 1 / -1;
+  }
+
+  .donate-hero__icon {
+    justify-self: end;
+  }
+
+  .crypto-grid {
+    width: 100%;
+  }
+
+  .install-section,
+  .donate-section {
+    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+    gap: 2rem;
+    padding-top: 1.7rem;
+  }
+
+  .install-section__copy,
+  .donate-section__copy {
+    position: sticky;
+    top: 104px;
+  }
+
+  .install-break-desktop {
+    display: block;
+  }
+
+  .code-card--wide {
+    align-self: start;
+  }
+
+  .install-callout {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 1.6rem 0;
+  }
+}
+
+@media (min-width: 1180px) {
+  .install-page,
+  .donate-page {
+    padding: 2.25rem 3rem 2.25rem;
+  }
+}

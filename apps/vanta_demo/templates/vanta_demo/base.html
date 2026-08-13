@@ -1,0 +1,24 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% translate "Vanta Admin Demo" %}{% endblock %}</title>
+  {% block metadata %}<meta name="robots" content="noindex, noarchive">{% endblock %}
+  <link rel="icon" type="image/png" href="{% static 'vanta_site/img/favicon.png' %}">
+  <link rel="stylesheet" href="{% static 'vanta_site/css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'vanta_demo/demo.css' %}">
+  <script src="{% static 'vanta_demo/demo.js' %}" defer></script>
+</head>
+<body class="demo-runtime">
+  <a class="skip-to-content" href="#main-content">{% translate "Skip to main content" %}</a>
+  <header class="demo-runtime__header">
+    <a class="demo-runtime__brand" href="https://vanta-admin.org/en/" aria-label="{% translate 'Vanta Admin homepage' %}">
+      <img src="{% static 'vanta_site/img/logo.png' %}" alt="" width="44" height="44">
+      <span>Vanta Admin</span>
+    </a>
+  </header>
+  {% block content %}{% endblock %}
+</body>
+</html>
