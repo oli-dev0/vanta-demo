@@ -4,6 +4,8 @@ This repository powers the interactive [Vanta Admin demo](https://demo.vanta-adm
 It is a small, standalone Django application built around the released Vanta
 Admin package.
 
+[More info](https://oli-dev0.me/projects/vanta-demo/)
+
 The demo gives you a real admin area to explore rather than a set of screenshots.
 You can browse lists, search and filter records, open forms, try bulk actions,
 change settings, and see how the theme behaves with realistic content. The data
