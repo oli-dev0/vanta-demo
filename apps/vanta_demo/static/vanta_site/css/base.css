@@ -23,8 +23,8 @@
   --accent-strong: #255fbd;
   --accent-soft: color-mix(in srgb, var(--accent) 12%, transparent);
   --accent-softer: color-mix(in srgb, var(--accent) 8%, transparent);
-  --button-bg: var(--accent);
-  --button-bg-hover: var(--accent-strong);
+  --button-bg: #1e6fd1;
+  --button-bg-hover: #1559b5;
   --button-text: #ffffff;
   --media-bg: #f1f7ff;
   --radius-sm: 8px;
@@ -57,9 +57,9 @@
     --subtle: #7f858e;
     --accent: #62b96f;
     --accent-strong: #7bc686;
-    --button-bg: #c5ee71;
-    --button-bg-hover: #d4f58c;
-    --button-text: #141909;
+    --button-bg: #5b9bd5;
+    --button-bg-hover: #76b7e5;
+    --button-text: #0b0b0b;
     --media-bg: #121314;
   }
 }
@@ -85,8 +85,8 @@
   --subtle: #71879d;
   --accent: #3170d4;
   --accent-strong: #255fbd;
-  --button-bg: var(--accent);
-  --button-bg-hover: var(--accent-strong);
+  --button-bg: #1e6fd1;
+  --button-bg-hover: #1559b5;
   --button-text: #ffffff;
   --media-bg: #f1f7ff;
 }
@@ -112,9 +112,9 @@
   --subtle: #7f858e;
   --accent: #62b96f;
   --accent-strong: #7bc686;
-  --button-bg: #c5ee71;
-  --button-bg-hover: #d4f58c;
-  --button-text: #141909;
+  --button-bg: #5b9bd5;
+  --button-bg-hover: #76b7e5;
+  --button-text: #0b0b0b;
   --media-bg: #121314;
 }
 
