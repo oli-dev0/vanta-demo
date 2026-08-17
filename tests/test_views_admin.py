@@ -33,7 +33,7 @@ class DemoPublicViewTests(DemoFilesystemMixin, TransactionTestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Vanta Admin Demo | Try the Django Admin Theme')
         self.assertContains(response, 'https://demo.vanta-admin.org/')
-        self.assertContains(response, 'Running Vanta Admin 0.22.2 · Django 6.1')
+        self.assertContains(response, 'Running Vanta Admin 0.23.0 · Django 6.1')
         self.assertContains(response, 'Try the demo')
         self.assertContains(response, 'newsletters, service status, contact messages')
         self.assertEqual(response.headers['Cache-Control'], 'private, no-cache')

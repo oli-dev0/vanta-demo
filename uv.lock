@@ -227,14 +227,14 @@ wheels = [
 
 [[package]]
 name = "vanta-admin"
-version = "0.22.2"
+version = "0.23.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8c/42/9e9ffff824762fb45551a3a2e6645a7e6442af243ecd382ea0136f65cf77/vanta_admin-0.22.2.tar.gz", hash = "sha256:d02ce4549648d584ea6f812e041ced6538ee4cb589d82230037b1bc6cf76e180", size = 1111777, upload-time = "2026-08-08T21:02:51.984Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/da/6f/bf06b18f5ae02054b2cdba8d43f4b4e2007405d0408014033a25c9ea8de9/vanta_admin-0.23.0.tar.gz", hash = "sha256:e64b301b0a801ca765da101d19fea6318dbfb5f3390ebfbfe41db00955716e64", size = 1112024, upload-time = "2026-08-17T23:32:41.269Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/70/7d/2cf970d94d7a9f0d7e0bca3bd00e142131c68b11184633a11e98066acd0c/vanta_admin-0.22.2-py3-none-any.whl", hash = "sha256:b6a1591cedd026b6b0d645fbfade4f0ebf2c5f73e0e36a37b9bad833262b0430", size = 1126100, upload-time = "2026-08-08T21:02:50.241Z" },
+    { url = "https://files.pythonhosted.org/packages/db/dd/108e43e954044f1de59c8bcfa7a5584283b5594c6e6a36755230a2ee7131/vanta_admin-0.23.0-py3-none-any.whl", hash = "sha256:c70a60633eef355320e1dc430e73ea8675e38c5dcae2ebe8e79fa4f397a0365a", size = 1128273, upload-time = "2026-08-17T23:32:39.452Z" },
 ]
 
 [[package]]
@@ -263,7 +263,7 @@ requires-dist = [
     { name = "django", specifier = ">=6.1,<6.2" },
     { name = "gunicorn", specifier = ">=23.0.0" },
     { name = "psycopg", extras = ["binary"], specifier = ">=3.3.4" },
-    { name = "vanta-admin", specifier = "==0.22.2" },
+    { name = "vanta-admin", specifier = "==0.23.0" },
     { name = "whitenoise", specifier = ">=6.11.0" },
 ]
 

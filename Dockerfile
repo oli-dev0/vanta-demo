@@ -22,7 +22,7 @@ RUN uv sync --frozen --no-dev
 COPY . .
 
 RUN DJANGO_SETTINGS_MODULE=config.settings.demo_seed \
-    VANTA_DEMO_SEED_PATH=/app/demo-seed/vanta-demo-0.22.2-1.sqlite3 \
+    VANTA_DEMO_SEED_PATH=/app/demo-seed/vanta-demo-0.23.0-1.sqlite3 \
     uv run --no-sync python manage.py build_vanta_demo_seed --force
 
 RUN DJANGO_SETTINGS_MODULE=config.settings.demo \
@@ -34,7 +34,7 @@ RUN DJANGO_SETTINGS_MODULE=config.settings.demo \
 
 RUN DJANGO_SETTINGS_MODULE=config.settings.demo_seed \
     VANTA_DEMO_STATIC_ROOT=/app/demo-staticfiles \
-    VANTA_DEMO_SEED_PATH=/app/demo-seed/vanta-demo-0.22.2-1.sqlite3 \
+    VANTA_DEMO_SEED_PATH=/app/demo-seed/vanta-demo-0.23.0-1.sqlite3 \
     uv run --no-sync python manage.py collectstatic --noinput
 
 EXPOSE 8000

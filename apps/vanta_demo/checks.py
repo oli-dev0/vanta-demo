@@ -7,8 +7,8 @@ from django.core.checks import Error, Tags, register
 
 
 DEMO_CHECK_TAG = 'vanta_demo'
-EXPECTED_THEME_VERSION = '0.22.2'
-EXPECTED_SEED_VERSION = '0.22.2-1'
+EXPECTED_THEME_VERSION = '0.23.0'
+EXPECTED_SEED_VERSION = '0.23.0-1'
 
 
 @register(DEMO_CHECK_TAG, Tags.security)

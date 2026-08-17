@@ -33,7 +33,7 @@ class DemoWorkspaceModelTests(DemoFilesystemMixin, TransactionTestCase):
         return DemoWorkspace.objects.create(
             browser_id=browser_id,
             status=status,
-            seed_version='0.22.2-1',
+            seed_version='0.23.0-1',
             expires_at=now + timedelta(hours=2),
             last_activity_at=now,
         )
@@ -52,10 +52,10 @@ class DemoWorkspaceModelTests(DemoFilesystemMixin, TransactionTestCase):
 
     def test_active_state_requires_current_seed_and_future_expiry(self):
         workspace = self._workspace(uuid.uuid4())
-        self.assertTrue(workspace.is_active(seed_version='0.22.2-1'))
+        self.assertTrue(workspace.is_active(seed_version='0.23.0-1'))
         self.assertFalse(workspace.is_active(seed_version='0.15.2-1'))
         workspace.expires_at = timezone.now() - timedelta(seconds=1)
-        self.assertFalse(workspace.is_active(seed_version='0.22.2-1'))
+        self.assertFalse(workspace.is_active(seed_version='0.23.0-1'))
 
 
 class DemoDatabaseBoundaryTests(DemoFilesystemMixin, TransactionTestCase):
