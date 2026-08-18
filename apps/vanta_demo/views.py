@@ -278,7 +278,7 @@ def readyz(request):
 @require_GET
 def favicon(request):
     del request
-    return redirect(static('vanta_site/img/favicon.png'), permanent=False)
+    return redirect(static('vanta_site/img/logo.svg'), permanent=False)
 
 
 def bad_request(request, exception=None):
